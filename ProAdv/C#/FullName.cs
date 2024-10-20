@@ -21,9 +21,12 @@ public class ProAdv
         return info;
     }
     
-    static string fullName(stInfo info)
+    static string fullName(stInfo info, bool reversed)
     {
-        return (info.firstName + " " + info.lastName);
+        if (reversed)
+            return (info.lastName + " " + info.firstName);
+        else
+            return (info.firstName + " " + info.lastName);
     }
     
    static void PrintFullName(string fullName)
@@ -34,6 +37,6 @@ public class ProAdv
     
     public static void Main(string[] args)
     {
-        PrintFullName(fullName(ReadInfo()));
+        PrintFullName(fullName(ReadInfo(), true));
     }
 }
