@@ -14,7 +14,7 @@ public class ProAdv
         return n;
     }
 
-    static float calculateRectangleArea(ref float a, ref float b)
+    static float calculateRectangleArea(float a, float b)
     {
         return a * b;
     }
@@ -29,6 +29,6 @@ public class ProAdv
         float a = ReadNumbers();
         float b = ReadNumbers();
 
-        PrintResult(calculateRectangleArea(ref a, ref b));
+        PrintResult(calculateRectangleArea(a, b));
     }
 }
