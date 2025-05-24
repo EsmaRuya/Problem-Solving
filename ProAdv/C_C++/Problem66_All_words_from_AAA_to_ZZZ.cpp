@@ -2,8 +2,7 @@
 #include <string>
 using namespace std;
 /*
-Write a program to all words from AAA to ZZZ
-input : 3
+Write a program to print all words from AAA to ZZZ
 AAA
 AAB
 AAC
