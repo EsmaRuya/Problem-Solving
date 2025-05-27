@@ -27,7 +27,7 @@ void printArray(int arr[100], int length)
     cout << endl;
 }
 
-int OddNumbersInArray(int arr[], int length)
+int oddCountInArray(int arr[], int length)
 {
     int counter = 0;
     for (int i = 0; i < length; i++)
@@ -49,7 +49,7 @@ int main()
     printArray(arr, length);
 
     cout << "Odd numbers count is: "
-         << OddNumbersInArray(arr, length) << endl;
+         << oddCountInArray(arr, length) << endl;
 
     return 0;
 }
