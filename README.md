@@ -1,32 +1,22 @@
-## Problem-Solving
+# Problem-Solving
 
 
-### 📂 Repository Structure
+## 📂 Repository Structure
 
-Problem-Solving-Repo/
-│
-├─ README.md
-│
-│
-├─ Codewars/
-│   ├─ 
-│   ├─ C#/
-│   ├─ C++/  
-│
-├─ DataStructures/
-│   ├─ Arrays/
-│   ├─ LinkedLists/
-│
-│
-│
-├─ Database/
-│   ├─ SQLServer/
-│       ├─ HackerRank/
-│       └─ ProAdv/
-│
-│
-├─ ProvAdv/
-│   ├─ C#/
-│   ├─ C++/
-│   
+### Codewars
+- `C#/` – Codewars problems in C#
+- `C++/` – Codewars problems in C++
+
+### DataStructures
+- `Arrays/` – Array-related problems
+- `LinkedLists/` – Linked list problems
+
+### Database
+- `SQLServer/`  
+  - `HackerRank/` – SQL challenges from HackerRank  
+  - `ProAdv/` – SQL problems from ProAdv
+
+### ProAdv
+- `C#/` – C# programming problems  
+- `C++/` – C++ programming problems
 
