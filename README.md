@@ -1,9 +1,32 @@
 ## Problem-Solving
 
-Solve problems:
 
-- Algorithms and Data structure.
+### 📂 Repository Structure
 
-- Database.
+Problem-Solving-Repo/
+│
+├─ README.md
+│
+│
+├─ Codewars/
+│   ├─ 
+│   ├─ C#/
+│   ├─ C++/  
+│
+├─ DataStructures/
+│   ├─ Arrays/
+│   ├─ LinkedLists/
+│
+│
+│
+├─ Database/
+│   ├─ SQLServer/
+│       ├─ HackerRank/
+│       └─ ProAdv/
+│
+│
+├─ ProvAdv/
+│   ├─ C#/
+│   ├─ C++/
+│   
 
-- 
