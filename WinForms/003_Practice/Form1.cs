@@ -10,6 +10,8 @@ namespace _003_Practice
             InitializeComponent();
         }
 
+        string _Path = Path.Combine(Application.StartupPath, "Data.txt");
+
         private bool _isPersonIdExist(string ID)
         {
             StreamReader sr = new StreamReader("Data.txt");
@@ -31,7 +33,7 @@ namespace _003_Practice
 
         private string[] _GetPersonData(string ID)
         {
-            StreamReader sr = new StreamReader("Data.txt");
+            StreamReader sr = new StreamReader(_Path);
             string strLine;
             string[] arrLine;
 
@@ -51,7 +53,7 @@ namespace _003_Practice
         {
             // return File.ReadAllText("Data.txt");
 
-            StreamReader sr = new StreamReader("Data.txt");
+            StreamReader sr = new StreamReader(_Path);
             string strData = sr.ReadToEnd();
             sr.Close();
             return strData;
@@ -80,7 +82,8 @@ namespace _003_Practice
                 }
                 else
                 {
-                    StreamWriter sw = new StreamWriter("Data.txt", true);
+                    // StreamWriter sw = new StreamWriter("Data.txt", true); 
+                    StreamWriter sw = new StreamWriter(_Path, true);
 
                     string strPersonData = txtBox_ID.Text + ";" +
                                  txtBox_Name.Text + ";" +
@@ -143,6 +146,12 @@ namespace _003_Practice
 
         private void btnShowAll_Click(object sender, EventArgs e)
         {
+            if(!File.Exists(_Path))
+            {
+                MessageBox.Show("No data yet! Please add new person to create a file and show data again.", "No file exist", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
             Form frm = new Form();
             TextBox txtBox = new TextBox();
 
