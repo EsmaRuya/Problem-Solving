@@ -8,5 +8,8 @@ This repository documents my WinForms learning journey. It contains a single sol
 - 002_TextBox_CheckBox_CheckListBox_ComboBox: Pizza Order App.
 - 003_Practice: Person Data.
 - 004_OpenFileDialog : Open a file.
-- 005_SaveFileDialog : SaveNotes App.
-- 006_
+- 005_SaveFileDialog : SaveNotes.
+- 006_Practice : FileManagerLite App.
+- 007_Practice : Person Dara 2.
+- 008_DeleteControls.
+- 009_
