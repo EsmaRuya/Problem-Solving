@@ -12,4 +12,5 @@ This repository documents my WinForms learning journey. It contains a single sol
 - 006_Practice : FileManagerLite App.
 - 007_Practice : Person Dara 2.
 - 008_DeleteControls.
-- 009_
+- 009_Timer_NumericUpDown_TrackBar_Color : WorkoutSessionTimer App.
+- 010_
