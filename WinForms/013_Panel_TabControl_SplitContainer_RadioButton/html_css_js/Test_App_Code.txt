@@ -1,0 +1,36 @@
+### HTML Code : 
+
+<h1 id="title">Hello</h1>
+<div class="flex-container">
+       <button onclick="changeText()">Click</button>
+</div>
+
+
+### CSS Code :
+h1 {
+color : red;
+text-align : center;
+}
+
+.flex-container {
+  
+display: flex;
+  
+justify-content: center; 
+align-items: center;           
+
+}
+
+button {
+width : 200px;
+height : 50px;
+}
+
+body {
+  background-color: lightblue;
+}
+
+### JS Code :
+function changeText() {
+document.getElementById("title").innerHTML = "Welcome";
+}
