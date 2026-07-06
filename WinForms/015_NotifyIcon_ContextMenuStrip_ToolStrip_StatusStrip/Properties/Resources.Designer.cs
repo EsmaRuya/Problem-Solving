@@ -73,6 +73,26 @@ namespace _015_NotifyIcon_ContextMenuStrip_ToolStrip_StatusStrip.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Esma_Rüya {
+            get {
+                object obj = ResourceManager.GetObject("Esma Rüya", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap home2_32 {
+            get {
+                object obj = ResourceManager.GetObject("home2_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap image_32 {
             get {
                 object obj = ResourceManager.GetObject("image_32", resourceCulture);
