@@ -34,6 +34,7 @@
             lvShowData = new ListView();
             columnHeader0 = new ColumnHeader();
             columnHeader1 = new ColumnHeader();
+            treeView = new TreeView();
             SuspendLayout();
             // 
             // btnBrwoser
@@ -70,7 +71,6 @@
             // 
             // lvShowData
             // 
-            lvShowData.Anchor = AnchorStyles.None;
             lvShowData.BorderStyle = BorderStyle.FixedSingle;
             lvShowData.Columns.AddRange(new ColumnHeader[] { columnHeader0, columnHeader1 });
             lvShowData.FullRowSelect = true;
@@ -78,7 +78,7 @@
             lvShowData.Location = new Point(11, 76);
             lvShowData.MultiSelect = false;
             lvShowData.Name = "lvShowData";
-            lvShowData.Size = new Size(1154, 352);
+            lvShowData.Size = new Size(1156, 352);
             lvShowData.TabIndex = 9;
             lvShowData.UseCompatibleStateImageBehavior = false;
             lvShowData.View = View.Details;
@@ -93,12 +93,20 @@
             columnHeader1.Text = "Path";
             columnHeader1.Width = 800;
             // 
+            // treeView
+            // 
+            treeView.Location = new Point(1173, 76);
+            treeView.Name = "treeView";
+            treeView.Size = new Size(276, 352);
+            treeView.TabIndex = 10;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1180, 478);
+            ClientSize = new Size(1461, 478);
+            Controls.Add(treeView);
             Controls.Add(lvShowData);
             Controls.Add(btnBrwoser);
             Controls.Add(rbFolders);
@@ -118,5 +126,6 @@
         private ListView lvShowData;
         private ColumnHeader columnHeader0;
         private ColumnHeader columnHeader1;
+        private TreeView treeView;
     }
 }
