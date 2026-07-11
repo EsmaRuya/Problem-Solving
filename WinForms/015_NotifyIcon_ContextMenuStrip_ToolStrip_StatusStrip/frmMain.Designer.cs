@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             toolStrip1 = new ToolStrip();
             tsBtnHome = new ToolStripButton();
             toolStripSeparator4 = new ToolStripSeparator();
@@ -44,14 +45,16 @@
             stLblFileInfo = new ToolStripStatusLabel();
             contextMenuStrip1 = new ContextMenuStrip(components);
             exitToolStripMenuItem = new ToolStripMenuItem();
+            closeFileToolStripMenuItem = new ToolStripMenuItem();
+            fileInfoToolStripMenuItem = new ToolStripMenuItem();
             panelContent = new Panel();
             pHomePage = new Panel();
+            panel1 = new Panel();
+            label1 = new Label();
             linkSoundFiles = new LinkLabel();
             linkImageFiles = new LinkLabel();
-            linkTextFiles = new LinkLabel();
             label2 = new Label();
-            label1 = new Label();
-            panel1 = new Panel();
+            linkTextFiles = new LinkLabel();
             toolStrip1.SuspendLayout();
             statusStrip1.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
@@ -65,7 +68,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { tsBtnHome, toolStripSeparator4, tsBtnTxtFile, toolStripSeparator1, tsBtnImageFiles, toolStripSeparator2, tsBtnSoundFiles, toolStripSeparator3, tsLblHints });
             toolStrip1.Location = new Point(0, 0);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(1009, 54);
+            toolStrip1.Size = new Size(1079, 54);
             toolStrip1.TabIndex = 0;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -146,9 +149,9 @@
             // statusStrip1
             // 
             statusStrip1.Items.AddRange(new ToolStripItem[] { stLblPage, stLblFileInfo });
-            statusStrip1.Location = new Point(0, 482);
+            statusStrip1.Location = new Point(0, 486);
             statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(1009, 22);
+            statusStrip1.Size = new Size(1079, 22);
             statusStrip1.TabIndex = 1;
             statusStrip1.Text = "statusStrip1";
             // 
@@ -165,16 +168,32 @@
             // 
             // contextMenuStrip1
             // 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem });
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { exitToolStripMenuItem, closeFileToolStripMenuItem, fileInfoToolStripMenuItem });
             contextMenuStrip1.Name = "contextMenuStrip1";
-            contextMenuStrip1.Size = new Size(94, 26);
+            contextMenuStrip1.Size = new Size(123, 70);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new Size(93, 22);
+            exitToolStripMenuItem.Size = new Size(122, 22);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            // 
+            // closeFileToolStripMenuItem
+            // 
+            closeFileToolStripMenuItem.Enabled = false;
+            closeFileToolStripMenuItem.Name = "closeFileToolStripMenuItem";
+            closeFileToolStripMenuItem.Size = new Size(122, 22);
+            closeFileToolStripMenuItem.Text = "Close file";
+            closeFileToolStripMenuItem.Click += closeFileToolStripMenuItem_Click;
+            // 
+            // fileInfoToolStripMenuItem
+            // 
+            fileInfoToolStripMenuItem.Enabled = false;
+            fileInfoToolStripMenuItem.Name = "fileInfoToolStripMenuItem";
+            fileInfoToolStripMenuItem.Size = new Size(122, 22);
+            fileInfoToolStripMenuItem.Text = "File info";
+            fileInfoToolStripMenuItem.Click += fileInfoToolStripMenuItem_Click;
             // 
             // panelContent
             // 
@@ -182,7 +201,7 @@
             panelContent.Dock = DockStyle.Fill;
             panelContent.Location = new Point(0, 54);
             panelContent.Name = "panelContent";
-            panelContent.Size = new Size(1009, 428);
+            panelContent.Size = new Size(1079, 432);
             panelContent.TabIndex = 3;
             // 
             // pHomePage
@@ -191,13 +210,39 @@
             pHomePage.Dock = DockStyle.Fill;
             pHomePage.Location = new Point(0, 0);
             pHomePage.Name = "pHomePage";
-            pHomePage.Size = new Size(1009, 428);
+            pHomePage.Size = new Size(1079, 432);
             pHomePage.TabIndex = 0;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.BackColor = Color.Transparent;
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(linkSoundFiles);
+            panel1.Controls.Add(linkImageFiles);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(linkTextFiles);
+            panel1.Location = new Point(27, 56);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1028, 320);
+            panel1.TabIndex = 5;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.Transparent;
+            label1.Font = new Font("MV Boli", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.DodgerBlue;
+            label1.Location = new Point(366, 16);
+            label1.Name = "label1";
+            label1.Size = new Size(288, 63);
+            label1.TabIndex = 0;
+            label1.Text = "DropViewer";
             // 
             // linkSoundFiles
             // 
             linkSoundFiles.AutoSize = true;
-            linkSoundFiles.Location = new Point(239, 154);
+            linkSoundFiles.Location = new Point(560, 272);
             linkSoundFiles.Name = "linkSoundFiles";
             linkSoundFiles.Size = new Size(90, 21);
             linkSoundFiles.TabIndex = 4;
@@ -208,7 +253,7 @@
             // linkImageFiles
             // 
             linkImageFiles.AutoSize = true;
-            linkImageFiles.Location = new Point(132, 154);
+            linkImageFiles.Location = new Point(466, 272);
             linkImageFiles.Name = "linkImageFiles";
             linkImageFiles.Size = new Size(88, 21);
             linkImageFiles.TabIndex = 3;
@@ -216,10 +261,20 @@
             linkImageFiles.Text = "Image Files";
             linkImageFiles.LinkClicked += linkImageFiles_LinkClicked;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(7, 102);
+            label2.Name = "label2";
+            label2.Size = new Size(1006, 84);
+            label2.TabIndex = 1;
+            label2.Text = resources.GetString("label2.Text");
+            label2.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // linkTextFiles
             // 
             linkTextFiles.AutoSize = true;
-            linkTextFiles.Location = new Point(25, 154);
+            linkTextFiles.Location = new Point(375, 272);
             linkTextFiles.Name = "linkTextFiles";
             linkTextFiles.Size = new Size(71, 21);
             linkTextFiles.TabIndex = 2;
@@ -227,44 +282,13 @@
             linkTextFiles.Text = "Text Files";
             linkTextFiles.LinkClicked += linkTextFiles_LinkClicked;
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(114, 71);
-            label2.Name = "label2";
-            label2.Size = new Size(124, 21);
-            label2.TabIndex = 1;
-            label2.Text = "DropViewer info";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Yu Gothic UI", 20.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(16, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(313, 37);
-            label1.TabIndex = 0;
-            label1.Text = "Welcome to DropViewer";
-            // 
-            // panel1
-            // 
-            panel1.Controls.Add(label1);
-            panel1.Controls.Add(linkSoundFiles);
-            panel1.Controls.Add(linkImageFiles);
-            panel1.Controls.Add(label2);
-            panel1.Controls.Add(linkTextFiles);
-            panel1.Location = new Point(328, 120);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(353, 189);
-            panel1.TabIndex = 5;
-            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(9F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(1009, 504);
+            ClientSize = new Size(1079, 508);
             ContextMenuStrip = contextMenuStrip1;
             Controls.Add(panelContent);
             Controls.Add(statusStrip1);
@@ -313,5 +337,7 @@
         private Label label2;
         private ToolStripLabel tsLblHints;
         private Panel panel1;
+        private ToolStripMenuItem closeFileToolStripMenuItem;
+        private ToolStripMenuItem fileInfoToolStripMenuItem;
     }
 }
