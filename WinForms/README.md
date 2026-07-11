@@ -17,4 +17,7 @@ This repository documents my WinForms learning journey. It contains a single sol
 - 011_ListBox_DateTimePicker_ProgressBasr_MaskedTextBox : Mini-Event-Registration-Manager App.
 - 012_Process_Class : Launch a program/Folder/File.
 - 013_Panel_TabControl_SplitContainer_RadioButton : Online HTML Editor.
-- 014_
+- 014_BackgroundWorker_GroupBox : File-Copier-with-Progress.
+- 015_NotifyIcon_ContextMenuStrip_ToolStrip_StatusStrip : DropViewer App.
+- 016_ListView_FolderBrwoserDialog_TreeView : Show-Files-And-Path-Data.
+- 017_
