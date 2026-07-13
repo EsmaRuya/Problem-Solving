@@ -20,4 +20,6 @@ This repository documents my WinForms learning journey. It contains a single sol
 - 014_BackgroundWorker_GroupBox : File-Copier-with-Progress.
 - 015_NotifyIcon_ContextMenuStrip_ToolStrip_StatusStrip : DropViewer App.
 - 016_ListView_FolderBrwoserDialog_TreeView : Show-Files-And-Path-Data.
-- 017_
+- 017_ImageList_MDI : Dashboard.
+- 018_MenuStrip_ToolStripContainer_WindowsMediaPlayer : PlayMedia.
+- 019_
