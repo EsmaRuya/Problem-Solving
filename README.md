@@ -16,6 +16,10 @@
   - `HackerRank/` – SQL challenges from HackerRank  
   - `ProAdv/` – SQL problems from ProAdv
 
+### DotNet
+- `Desktop/`  
+  - `WinForms C#/`   
+
 ### ProAdv
 - `C#/` – C# programming problems  
 - `C++/` – C++ programming problems
