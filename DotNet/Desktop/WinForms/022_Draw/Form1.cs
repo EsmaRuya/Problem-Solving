@@ -1,3 +1,5 @@
+using _022_Draw.Properties;
+
 namespace _022_Draw
 {
     public partial class Form1 : Form
@@ -6,7 +8,7 @@ namespace _022_Draw
         {
             InitializeComponent();
         }
-
+      
         private void btnDrawLine_Click(object sender, EventArgs e)
         {
             Point p1 = new Point(100, 50);
@@ -87,13 +89,13 @@ namespace _022_Draw
         private void btnDrawPolygon_Click(object sender, EventArgs e)
         {
             // Points should be in order
-            Point p1 = new Point(850,590);
-            Point p2 = new Point(900,550);
-            Point p3 = new Point(900,570);
-            Point p4 = new Point(1000,570);
-            Point p5 = new Point(1000,610);
-            Point p6 = new Point(900,610);
-            Point p7 = new Point(900,630);
+            Point p1 = new Point(850, 590);
+            Point p2 = new Point(900, 550);
+            Point p3 = new Point(900, 570);
+            Point p4 = new Point(1000, 570);
+            Point p5 = new Point(1000, 610);
+            Point p6 = new Point(900, 610);
+            Point p7 = new Point(900, 630);
             Point[] allPoint = { p1, p2, p3, p4, p5, p6, p7 };
 
             this.CreateGraphics().DrawPolygon(Pens.DeepPink, allPoint);
@@ -102,6 +104,19 @@ namespace _022_Draw
         {
             this.CreateGraphics().Clear(Color.White);
         }
+        private void btnDrawString_Click(object sender, EventArgs e)
+        {
+            string str = textString.Text;
+            Font font = new Font("Tahoma", 24, FontStyle.Bold);
+            Point p = new Point(450, 620);
 
+            this.CreateGraphics().DrawString(str, font, Brushes.Red, p);
+        }
+        private void btnDrawImage_Click(object sender, EventArgs e)
+        {
+            Image img = Resources.Esma_Rüya;
+            Point p = new Point(50, 20);
+            this.CreateGraphics().DrawImage(img,p);
+        }
     }
 }
