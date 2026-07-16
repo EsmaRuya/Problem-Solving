@@ -32,6 +32,8 @@
             btnDrawShapes = new Button();
             btnDrawZ = new Button();
             panel1 = new Panel();
+            btnClear = new Button();
+            btnDrawPolygon = new Button();
             nud = new NumericUpDown();
             btnDrawPie = new Button();
             btnDrawCylinder = new Button();
@@ -77,6 +79,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnClear);
+            panel1.Controls.Add(btnDrawPolygon);
             panel1.Controls.Add(nud);
             panel1.Controls.Add(btnDrawPie);
             panel1.Controls.Add(btnDrawCylinder);
@@ -89,8 +93,30 @@
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 502);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1023, 85);
+            panel1.Size = new Size(1004, 85);
             panel1.TabIndex = 3;
+            // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(7, 40);
+            btnClear.Margin = new Padding(4);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(987, 32);
+            btnClear.TabIndex = 9;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
+            // btnDrawPolygon
+            // 
+            btnDrawPolygon.Location = new Point(898, 4);
+            btnDrawPolygon.Margin = new Padding(4);
+            btnDrawPolygon.Name = "btnDrawPolygon";
+            btnDrawPolygon.Size = new Size(96, 32);
+            btnDrawPolygon.TabIndex = 8;
+            btnDrawPolygon.Text = "Polygon";
+            btnDrawPolygon.UseVisualStyleBackColor = true;
+            btnDrawPolygon.Click += btnDrawPolygon_Click;
             // 
             // nud
             // 
@@ -162,7 +188,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
-            ClientSize = new Size(1023, 587);
+            ClientSize = new Size(1004, 587);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
@@ -187,5 +213,7 @@
         private Button btnDrawCylinder;
         private Button btnDrawPie;
         private NumericUpDown nud;
+        private Button btnDrawPolygon;
+        private Button btnClear;
     }
 }

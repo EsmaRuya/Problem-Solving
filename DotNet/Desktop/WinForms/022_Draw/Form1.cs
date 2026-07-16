@@ -78,15 +78,30 @@ namespace _022_Draw
         }
         private void btnDrawPie_Click(object sender, EventArgs e)
         {
-            this.CreateGraphics().Clear(Color.White);
             this.CreateGraphics().DrawPie(Pens.Gray, 850, 50, 200, 200, 0, 90);
         }
         private void nud_ValueChanged(object sender, EventArgs e)
         {
-           this.CreateGraphics().Clear(Color.White);
-           this.CreateGraphics().DrawPie(Pens.Gray, 850, 50, 200, 200, 0, (float)nud.Value);
-
-
+            this.CreateGraphics().DrawPie(Pens.Gray, 850, 300, 200, 200, 0, (float)nud.Value);
         }
+        private void btnDrawPolygon_Click(object sender, EventArgs e)
+        {
+            // Points should be in order
+            Point p1 = new Point(850,590);
+            Point p2 = new Point(900,550);
+            Point p3 = new Point(900,570);
+            Point p4 = new Point(1000,570);
+            Point p5 = new Point(1000,610);
+            Point p6 = new Point(900,610);
+            Point p7 = new Point(900,630);
+            Point[] allPoint = { p1, p2, p3, p4, p5, p6, p7 };
+
+            this.CreateGraphics().DrawPolygon(Pens.DeepPink, allPoint);
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            this.CreateGraphics().Clear(Color.White);
+        }
+
     }
 }
