@@ -32,6 +32,8 @@
             btnDrawShapes = new Button();
             btnDrawZ = new Button();
             panel1 = new Panel();
+            btnLoad = new Button();
+            btnFillShapes = new Button();
             btnDrawImage = new Button();
             textString = new TextBox();
             btnDrawString = new Button();
@@ -60,7 +62,7 @@
             // 
             // btnDrawShapes
             // 
-            btnDrawShapes.Location = new Point(110, 4);
+            btnDrawShapes.Location = new Point(109, 4);
             btnDrawShapes.Margin = new Padding(4);
             btnDrawShapes.Name = "btnDrawShapes";
             btnDrawShapes.Size = new Size(96, 32);
@@ -71,7 +73,7 @@
             // 
             // btnDrawZ
             // 
-            btnDrawZ.Location = new Point(213, 4);
+            btnDrawZ.Location = new Point(211, 4);
             btnDrawZ.Margin = new Padding(4);
             btnDrawZ.Name = "btnDrawZ";
             btnDrawZ.Size = new Size(96, 32);
@@ -82,6 +84,8 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnLoad);
+            panel1.Controls.Add(btnFillShapes);
             panel1.Controls.Add(btnDrawImage);
             panel1.Controls.Add(textString);
             panel1.Controls.Add(btnDrawString);
@@ -99,12 +103,34 @@
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(0, 502);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1464, 85);
+            panel1.Size = new Size(1604, 85);
             panel1.TabIndex = 3;
+            // 
+            // btnLoad
+            // 
+            btnLoad.Location = new Point(1495, 6);
+            btnLoad.Margin = new Padding(4);
+            btnLoad.Name = "btnLoad";
+            btnLoad.Size = new Size(96, 32);
+            btnLoad.TabIndex = 14;
+            btnLoad.Text = "Load";
+            btnLoad.UseVisualStyleBackColor = true;
+            btnLoad.Click += btnLoad_Click;
+            // 
+            // btnFillShapes
+            // 
+            btnFillShapes.Location = new Point(1395, 6);
+            btnFillShapes.Margin = new Padding(4);
+            btnFillShapes.Name = "btnFillShapes";
+            btnFillShapes.Size = new Size(96, 32);
+            btnFillShapes.TabIndex = 13;
+            btnFillShapes.Text = "Fill Shapes";
+            btnFillShapes.UseVisualStyleBackColor = true;
+            btnFillShapes.Click += btnFillShapes_Click;
             // 
             // btnDrawImage
             // 
-            btnDrawImage.Location = new Point(1317, 4);
+            btnDrawImage.Location = new Point(1292, 6);
             btnDrawImage.Margin = new Padding(4);
             btnDrawImage.Name = "btnDrawImage";
             btnDrawImage.Size = new Size(96, 32);
@@ -115,16 +141,16 @@
             // 
             // textString
             // 
-            textString.Location = new Point(1097, 6);
+            textString.Location = new Point(1086, 6);
             textString.Name = "textString";
             textString.ScrollBars = ScrollBars.Horizontal;
-            textString.Size = new Size(213, 29);
+            textString.Size = new Size(199, 29);
             textString.TabIndex = 11;
             textString.Text = "Hello";
             // 
             // btnDrawString
             // 
-            btnDrawString.Location = new Point(994, 4);
+            btnDrawString.Location = new Point(984, 4);
             btnDrawString.Margin = new Padding(4);
             btnDrawString.Name = "btnDrawString";
             btnDrawString.Size = new Size(96, 32);
@@ -138,7 +164,7 @@
             btnClear.Location = new Point(7, 40);
             btnClear.Margin = new Padding(4);
             btnClear.Name = "btnClear";
-            btnClear.Size = new Size(1444, 32);
+            btnClear.Size = new Size(1584, 32);
             btnClear.TabIndex = 9;
             btnClear.Text = "Clear";
             btnClear.UseVisualStyleBackColor = true;
@@ -146,7 +172,7 @@
             // 
             // btnDrawPolygon
             // 
-            btnDrawPolygon.Location = new Point(891, 4);
+            btnDrawPolygon.Location = new Point(882, 4);
             btnDrawPolygon.Margin = new Padding(4);
             btnDrawPolygon.Name = "btnDrawPolygon";
             btnDrawPolygon.Size = new Size(96, 32);
@@ -157,7 +183,7 @@
             // 
             // nud
             // 
-            nud.Location = new Point(831, 6);
+            nud.Location = new Point(823, 6);
             nud.Maximum = new decimal(new int[] { 360, 0, 0, 0 });
             nud.Name = "nud";
             nud.Size = new Size(53, 29);
@@ -166,7 +192,7 @@
             // 
             // btnDrawPie
             // 
-            btnDrawPie.Location = new Point(728, 4);
+            btnDrawPie.Location = new Point(721, 4);
             btnDrawPie.Margin = new Padding(4);
             btnDrawPie.Name = "btnDrawPie";
             btnDrawPie.Size = new Size(96, 32);
@@ -177,7 +203,7 @@
             // 
             // btnDrawCylinder
             // 
-            btnDrawCylinder.Location = new Point(625, 4);
+            btnDrawCylinder.Location = new Point(619, 4);
             btnDrawCylinder.Margin = new Padding(4);
             btnDrawCylinder.Name = "btnDrawCylinder";
             btnDrawCylinder.Size = new Size(96, 32);
@@ -188,7 +214,7 @@
             // 
             // btnDrawEllipses
             // 
-            btnDrawEllipses.Location = new Point(522, 4);
+            btnDrawEllipses.Location = new Point(517, 4);
             btnDrawEllipses.Margin = new Padding(4);
             btnDrawEllipses.Name = "btnDrawEllipses";
             btnDrawEllipses.Size = new Size(96, 32);
@@ -199,7 +225,7 @@
             // 
             // btnDrawTable
             // 
-            btnDrawTable.Location = new Point(419, 4);
+            btnDrawTable.Location = new Point(415, 4);
             btnDrawTable.Margin = new Padding(4);
             btnDrawTable.Name = "btnDrawTable";
             btnDrawTable.Size = new Size(96, 32);
@@ -210,7 +236,7 @@
             // 
             // btnDrawRectangle
             // 
-            btnDrawRectangle.Location = new Point(316, 4);
+            btnDrawRectangle.Location = new Point(313, 4);
             btnDrawRectangle.Margin = new Padding(4);
             btnDrawRectangle.Name = "btnDrawRectangle";
             btnDrawRectangle.Size = new Size(96, 32);
@@ -225,7 +251,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.White;
-            ClientSize = new Size(1464, 587);
+            ClientSize = new Size(1604, 587);
             Controls.Add(panel1);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
@@ -233,6 +259,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             WindowState = FormWindowState.Maximized;
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nud).EndInit();
@@ -256,5 +283,7 @@
         private TextBox textString;
         private Button btnDrawString;
         private Button btnDrawImage;
+        private Button btnFillShapes;
+        private Button btnLoad;
     }
 }

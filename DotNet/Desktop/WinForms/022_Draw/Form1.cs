@@ -1,4 +1,5 @@
 using _022_Draw.Properties;
+using System.ComponentModel;
 
 namespace _022_Draw
 {
@@ -8,7 +9,7 @@ namespace _022_Draw
         {
             InitializeComponent();
         }
-      
+
         private void btnDrawLine_Click(object sender, EventArgs e)
         {
             Point p1 = new Point(100, 50);
@@ -103,6 +104,7 @@ namespace _022_Draw
         private void btnClear_Click(object sender, EventArgs e)
         {
             this.CreateGraphics().Clear(Color.White);
+            lblCount.Visible = false;
         }
         private void btnDrawString_Click(object sender, EventArgs e)
         {
@@ -116,7 +118,74 @@ namespace _022_Draw
         {
             Image img = Resources.Esma_Rüya;
             Point p = new Point(50, 20);
-            this.CreateGraphics().DrawImage(img,p);
+            this.CreateGraphics().DrawImage(img, p);
+        }
+        private void btnFillShapes_Click(object sender, EventArgs e)
+        {
+            this.CreateGraphics().Clear(Color.White);
+
+            // Rec with border
+            this.CreateGraphics().DrawRectangle(Pens.Red, 99, 50, 301, 201);
+            this.CreateGraphics().FillRectangle(Brushes.Pink, 100, 51, 300, 200);
+
+            // Rec without border
+            this.CreateGraphics().FillRectangle(Brushes.Purple, 100, 270, 300, 200);
+
+            // Pie
+            this.CreateGraphics().FillPie(Brushes.YellowGreen, 150, 500, 200, 200, 10, 320);
+
+            // Circle
+            this.CreateGraphics().FillPie(Brushes.Blue, 500, 350, 200, 200, 0, 360);
+
+            // Polygon
+            Point p1 = new Point(450, 200);
+            Point p2 = new Point(550, 100);
+            Point p3 = new Point(550, 150);
+            Point p4 = new Point(700, 150);
+            Point p5 = new Point(700, 250);
+            Point p6 = new Point(550, 250);
+            Point p7 = new Point(550, 300);
+            Point[] allPoint = { p1, p2, p3, p4, p5, p6, p7 };
+            this.CreateGraphics().FillPolygon(Brushes.LightBlue, allPoint);
+        }
+
+        Label lblCount = new Label();
+        Point p = new Point(800, 315);
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+            double percentage;
+            lblCount.Visible = true;
+            lblCount.Text = "0";
+
+            this.CreateGraphics().Clear(Color.White);
+
+            this.CreateGraphics().DrawRectangle(Pens.Blue, 500, 300, 600, 50);
+            this.CreateGraphics().FillRectangle(Brushes.LightBlue, 501, 301, 599, 49);
+
+            for (int i = 0; i < 600; i++)
+            {
+                percentage = (i / 600.0) * 100;
+                lblCount.Text = $"{Math.Round(percentage)}%";
+                lblCount.Update();
+
+                for (int j = 0; j < 100; j++)
+                {
+                    this.CreateGraphics().FillRectangle(Brushes.Blue, 501, 301, i, 49);
+                }
+            }
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            lblCount.Visible = false;
+            lblCount.Text = "0";
+            lblCount.BackColor = Color.LightBlue;
+            lblCount.ForeColor = Color.Black;
+            lblCount.Font = new Font("Tahoma", 12, FontStyle.Bold);
+            lblCount.Location = p;
+            lblCount.Width = 60;
+
+            this.Controls.Add(lblCount);
         }
     }
 }
