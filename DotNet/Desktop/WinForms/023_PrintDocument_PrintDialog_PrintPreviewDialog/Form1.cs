@@ -4,6 +4,8 @@ namespace _023_PrintDocument_PrintDialog_PrintPreviewDialog
 {
     public partial class Form1 : Form
     {
+        int _CurrentChar = 0;
+        int _PageNumber = 1;
         public Form1()
         {
             InitializeComponent();
@@ -20,7 +22,6 @@ namespace _023_PrintDocument_PrintDialog_PrintPreviewDialog
         }
         private void printDocument_PrintPage(object sender, PrintPageEventArgs e)
         {
-            // Font font = new Font("Tahoma", 12, FontStyle.Regular);
             Font titleFont = new Font("tahoma", 18, FontStyle.Bold);
             Font txtFont = txtContent.Font;
 
@@ -28,20 +29,56 @@ namespace _023_PrintDocument_PrintDialog_PrintPreviewDialog
             string txt = txtContent.Text;
             string date = DateTime.Now.ToShortDateString();
 
-            SizeF size = e.Graphics.MeasureString(date, txtContent.Font);
-            float xDate = e.MarginBounds.Right - size.Width;
-            float yPageNumber = e.MarginBounds.Bottom;
+            // Header
+            SizeF dateSize = e.Graphics.MeasureString(date, txtFont);
+            float xDate = e.MarginBounds.Right - dateSize.Width;
 
+            e.Graphics.DrawString(date, txtFont, Brushes.Black, xDate, 30);
+            e.Graphics.DrawString(title, titleFont, Brushes.Black, 50, 60);
+
+            // Body
             RectangleF rec = new RectangleF(e.MarginBounds.Left,
-                                            e.MarginBounds.Top,
-                                            e.MarginBounds.Width + 30,
+                                            e.MarginBounds.Top + 20,
+                                            e.MarginBounds.Width,
                                             e.MarginBounds.Height);
 
-            //   e.Graphics.DrawString(date, txtFont, Brushes.Black, xDate,30);
-            //  e.Graphics.DrawString(title, titleFont, Brushes.Black, 50, 60);
-            e.Graphics.DrawString(txt, txtFont, Brushes.Black, rec);
-          //  e.Graphics.DrawString("1", txtFont, Brushes.Black, 50, yPageNumber);
-            
+            string remainingText = txt.Substring(_CurrentChar);
+            int charactersFitted, linesFitted;
+
+            e.Graphics.MeasureString(remainingText,
+                                     txtFont,
+                                     rec.Size,
+                                     StringFormat.GenericDefault,
+                                     out charactersFitted,
+                                     out linesFitted);
+
+            string pageText = remainingText.Substring(0,charactersFitted);
+
+            e.Graphics.DrawString(pageText, txtFont, Brushes.Black, rec);
+
+            // Footer
+            string pageNumber = $"Page {_PageNumber}";
+            SizeF PageNumsize = e.Graphics.MeasureString(pageNumber, txtFont);
+
+            e.Graphics.DrawString(pageNumber,
+                                  txtFont,
+                                  Brushes.Black,
+                                  e.MarginBounds.Right - PageNumsize.Width,
+                                  e.MarginBounds.Bottom + 40);
+
+            _CurrentChar += charactersFitted;
+
+            if(_CurrentChar < txt.Length)
+            {
+                e.HasMorePages = true;
+                _PageNumber++;
+            }
+            else
+            {
+                e.HasMorePages = false;
+                _CurrentChar = 0;
+                _PageNumber = 1;
+            }
         }
         private void btnPrint_Click(object sender, EventArgs e)
         {
