@@ -32,12 +32,15 @@ namespace _023_PrintDocument_PrintDialog_PrintPreviewDialog
             float xDate = e.MarginBounds.Right - size.Width;
             float yPageNumber = e.MarginBounds.Bottom;
 
-            
+            RectangleF rec = new RectangleF(e.MarginBounds.Left,
+                                            e.MarginBounds.Top,
+                                            e.MarginBounds.Width + 30,
+                                            e.MarginBounds.Height);
 
-             e.Graphics.DrawString(date, txtFont, Brushes.Black, xDate,30);
-            e.Graphics.DrawString(title, titleFont, Brushes.Black, 50, 60);
-            e.Graphics.DrawString(txt, txtFont, Brushes.Black, 50,130);
-          e.Graphics.DrawString("1", txtFont, Brushes.Black, 50, yPageNumber);
+            //   e.Graphics.DrawString(date, txtFont, Brushes.Black, xDate,30);
+            //  e.Graphics.DrawString(title, titleFont, Brushes.Black, 50, 60);
+            e.Graphics.DrawString(txt, txtFont, Brushes.Black, rec);
+          //  e.Graphics.DrawString("1", txtFont, Brushes.Black, 50, yPageNumber);
             
         }
         private void btnPrint_Click(object sender, EventArgs e)
