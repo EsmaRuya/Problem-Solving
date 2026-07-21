@@ -7,6 +7,7 @@ namespace _025_Print
             InitializeComponent();
         }
 
+        int currentChar = 0, pageNumber = 1;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             string txtBody = txtContent.Text;
@@ -157,8 +158,79 @@ namespace _025_Print
                                   xFooter,
                                   e.MarginBounds.Bottom);
             */
-        
-            // 8 - 
+
+            // 8 - Types of MeasureString
+            /*
+            SizeF s1 = e.Graphics.MeasureString(txtBody, txtFont); // Retrieve size of the text with no layout width (one line)
+            
+            SizeF s2 =  e.Graphics.MeasureString(txtBody, txtFont, e.MarginBounds.Width); // Retrieve size of the text in a layout (rectangle - wraps if needed)
+            
+            SizeF s3 =  e.Graphics.MeasureString(txtBody, txtFont, e.MarginBounds.Width, StringFormat.GenericDefault); // same as 2, it'll change if text formatting is changed
+            StringFormat sf = new StringFormat();
+           sf.Alignment = StringAlignment.Center;
+            sf.FormatFlags = StringFormatFlags.NoWrap;
+            SizeF s3_1 =  e.Graphics.MeasureString(txtBody, txtFont, e.MarginBounds.Width, sf); // Retrieve size of the text using the specified StringFormat
+
+            Rectangle rect = new Rectangle(e.MarginBounds.Left,e.MarginBounds.Top, e.MarginBounds.Width, e.MarginBounds.Height);
+            int charFitted = 0, linesFitted = 0;
+            SizeF s4 = e.Graphics.MeasureString(txtBody, txtFont, rect.Size, StringFormat.GenericDefault, out charFitted, out linesFitted); // Retrieve size of the text inside the given rectangleSize & How many characters/lines fit in that area
+
+            MessageBox.Show($"s1 : {s1}\n" +
+                            $"s2 : {s2}\n" +
+                            $"s3 : {s3}\n" +
+                            $"s3_1 : {s3_1}\n" +
+                            $"s4 : {s4}\nchar : {charFitted} - lines : {linesFitted}");
+
+           e.Graphics.DrawString(txtBody,txtFont,Brushes.Black, rect, sf);
+           */
+
+            
+            // 9 - Print many pages
+            
+            string header = "Header";
+            Font headerFont = new Font("Tahoma", 36, FontStyle.Bold | FontStyle.Italic);
+            SizeF headerSize = e.Graphics.MeasureString(header, headerFont);
+            StringFormat stringFormat = new StringFormat();
+            stringFormat.Alignment = StringAlignment.Center;
+            e.Graphics.DrawString(header,
+                                  headerFont,
+                                  Brushes.Red,
+                                  e.MarginBounds,
+                                  stringFormat);
+
+
+
+            Rectangle rect = new Rectangle(e.MarginBounds.Left,
+                                           e.MarginBounds.Top + (int)headerSize.Height,
+                                           e.MarginBounds.Width,
+                                           e.MarginBounds.Height - (int)headerSize.Height);
+            int charactersFitted = 0, linesFitted = 0;
+            string textPage = "", remainingText = "";
+            remainingText = txtBody.Substring(currentChar); // retrieve a text begins with currentChar
+            e.Graphics.MeasureString(remainingText, txtFont, rect.Size, StringFormat.GenericDefault, out charactersFitted, out linesFitted); // retrieve characters + lines Fitted
+            textPage = remainingText.Substring(0, charactersFitted);
+            currentChar += charactersFitted;
+            e.Graphics.DrawString(textPage, txtFont, Brushes.Maroon, rect);
+
+           
+            string footer = pageNumber++.ToString();
+            Font footerFont = new Font("Tahoma", 12, FontStyle.Bold);
+            SizeF footerSize = e.Graphics.MeasureString(footer, footerFont);
+            e.Graphics.DrawString(footer,
+                                  footerFont,
+                                  Brushes.Blue,
+                                  e.MarginBounds.Right - 50,
+                                  e.MarginBounds.Bottom + 30);
+
+
+            if (currentChar < txtBody.Length)
+                e.HasMorePages = true;
+            else
+            {
+                e.HasMorePages = false;
+                currentChar = 0;
+                pageNumber = 1;
+            }
         }
 
         private void btnPrint_Click(object sender, EventArgs e)
